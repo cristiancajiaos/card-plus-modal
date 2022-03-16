@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-8 offset-2">
     <div class="d-grid">
-      <button class="btn btn-primary mb-3">
+      <button class="btn btn-primary mb-3" (click)="openTemplateModal(content)">
         Open Template Modal
       </button>
       <button class="btn btn-primary">
@@ -10,3 +10,19 @@
     </div>
   </div>
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Template Modal</h4>
+    <button class="btn-close" (click)="modal.close('Close by header')">
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Contenido</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-danger" (click)="modal.dismiss('Dismiss by close button')">
+      <i class="fa-solid fa-times fa-fw"></i> Close
+    </button>
+  </div>
+</ng-template>
