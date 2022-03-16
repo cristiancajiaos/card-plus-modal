@@ -1,3 +1,4 @@
+import { ModalComponent } from './../shared/modal/modal.component';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -22,6 +23,16 @@ export class LayoutComponent implements OnInit {
 
   openTemplateModal(content: any): void {
     this.modal.open(content, this.defaultSettings)
+      .result
+      .then((resolve) => {
+        console.log(resolve);
+      }, (reject) => {
+        console.log(reject);
+      });
+  }
+
+  openComponentModal(): void {
+    this.modal.open(ModalComponent, this.defaultSettings)
       .result
       .then((resolve) => {
         console.log(resolve);
